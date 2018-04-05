@@ -7,7 +7,7 @@ from .exceptions import UnauthorizedError, NotFoundError
 from .domain import Platform, Player
 
 
-class FORTNITE:
+class Fortnite:
 
     def __init__(self, api_key):
         self.client = Client(api_key)

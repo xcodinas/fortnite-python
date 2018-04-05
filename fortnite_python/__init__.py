@@ -1,5 +1,5 @@
-from .base import FORTNITE
+from .base import Fortnite
 
 __all__ = [
-    'FORTNITE',
+    'Fortnite',
 ]
