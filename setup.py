@@ -1,9 +1,14 @@
 from setuptools import find_packages, setup
 
+with open('README.md') as f:
+    long_description = f.read()
+
 setup(
     name='fortnite-python',
-    version='0.1.0',
+    version='0.2.0',
     description='Python wrapper for http://fortnitetracker.com/ api.',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/xcodinas/fortnite-python',
     author='Xavier Codinas',
     author_email='xavier19966@gmail.com',
