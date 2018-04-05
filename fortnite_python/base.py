@@ -3,7 +3,7 @@ import json
 import furl
 import requests
 
-from .exceptions import UnauthorizedError, NotFoundError
+from .exceptions import UnauthorizedError, NotFoundError, UnknownPlayerError
 from .domain import Platform, Player
 
 
@@ -15,7 +15,9 @@ class Fortnite:
     def player(self, player=None, platform=Platform.PC):
         endpoint = platform.value + '/' + player
         data = self.client.request(endpoint)
-        return Player(data)
+        if hasattr(data, 'accountId'):
+            return Player(data)
+        raise UnknownPlayerError
 
 
 class Client:

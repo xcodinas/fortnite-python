@@ -6,3 +6,8 @@ class UnauthorizedError(Exception):
 class NotFoundError(BaseException):
     def __init__(self, message='The specified resource was not found'):
         super().__init__()
+
+
+class UnknownPlayerError(BaseException):
+    def __init__(self, message='The specified player was not found'):
+        super().__init__()

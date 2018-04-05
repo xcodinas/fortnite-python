@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/xcodinas/fortnite-python.svg?branch=master)](https://travis-ci.org/xcodinas/fortnite-python)
+[![PyPI version](https://badge.fury.io/py/fortnite-python.svg)](https://badge.fury.io/py/fortnite-python)
 
 # fortnite-python
 Python wrapper for http://fortnitetracker.com/ api.
