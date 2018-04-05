@@ -39,7 +39,6 @@ class Client:
 
     def request(self, endpoint):
         response = self.session.get(self.BASE_URL + endpoint)
-        print(self.BASE_URL + endpoint)
         if response.status_code != self.API_OK:
             exception = self.API_ERRORS_MAPPING.get(
                 response.status_code, Exception)
