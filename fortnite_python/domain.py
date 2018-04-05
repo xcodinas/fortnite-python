@@ -34,7 +34,7 @@ class Player(Domain):
             self.__class__.__name__, self.id, self.platform)
 
     def from_json(self):
-        super().from_json()
+        super(Domain, self).from_json()
         self.id = self._data.get('accountId')
         self.platform = self._data.get('platformName')
         self.username = self._data.get('epicUserHandle')
@@ -52,7 +52,7 @@ class Stats(Domain):
         self.from_json()
 
     def from_json(self):
-        super().from_json()
+        super(Domain, self).from_json()
         self.wins = self._data.get('top1').get('value')
         self.total = self._data.get('matches').get('value')
         self.kd = self._data.get('kd').get('value')
