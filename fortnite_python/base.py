@@ -15,7 +15,7 @@ class Fortnite:
     def player(self, player=None, platform=Platform.PC):
         endpoint = platform.value + '/' + player
         data = self.client.request(endpoint)
-        if hasattr(data, 'accountId'):
+        if 'accountId' in data:
             return Player(data)
         raise UnknownPlayerError
 

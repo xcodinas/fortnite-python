@@ -8,9 +8,9 @@ class Platform(Enum):
 
 
 class Mode(Enum):
-    solo = 'p2'
-    duo = 'p10'
-    squad = 'p9'
+    SOLO = 'p2'
+    DUO = 'p10'
+    SQUAD = 'p9'
 
 
 class Domain:
@@ -42,7 +42,7 @@ class Player(Domain):
         self._stats = self._data.get('stats')
         self._lifetime = self._data.get('lifeTimeStats')
 
-    def getStats(self, mode=Mode.squad):
+    def getStats(self, mode=Mode.SQUAD):
         return Stats(self._stats.get(mode.value))
 
 

@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/xcodinas/fortnite-python.svg?branch=master)](https://travis-ci.org/xcodinas/fortnite-python)
 [![PyPI version](https://badge.fury.io/py/fortnite-python.svg)](https://badge.fury.io/py/fortnite-python)
+[![Requirements Status](https://requires.io/github/xcodinas/fortnite-python/requirements.svg?branch=master)](https://requires.io/github/xcodinas/fortnite-python/requirements/?branch=master)
 
 # fortnite-python
 Python wrapper for http://fortnitetracker.com/ api.
@@ -66,7 +67,7 @@ Retrieving player stats:
 
 >>> fortnite = Fortnite('Given api key')
 >>> player = fortnite.player('playername')
->>> stats = player.getStats(Mode.duo)
+>>> stats = player.getStats(Mode.DUO)
 >>> stats.wins
 '10'
 >>> stats.top3
