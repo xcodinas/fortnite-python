@@ -56,7 +56,8 @@ class Stats(Domain):
         self.wins = self._data.get('top1').get('value')
         self.total = self._data.get('matches').get('value')
         self.kd = self._data.get('kd').get('value')
-        self.winratio = self._data.get('winRatio').get('value')
+        if 'winRatio' in self._data:
+            self.winratio = self._data.get('winRatio').get('value')
         self.kills = self._data.get('kills').get('value')
         self.score = self._data.get('score').get('value')
         self.score_match = self._data.get('scorePerMatch').get('value')
@@ -74,7 +75,8 @@ class Stats(Domain):
         stats += 'Top 3: ' + self.top3 + '\n'
         stats += 'Top 5: ' + self.top5 + '\n'
         stats += 'Top 10: ' + self.top10 + '\n'
-        stats += 'Win Ratio: ' + self.winratio + '\n'
+        if hasattr(self, 'winratio'):
+            stats += 'Win Ratio: ' + self.winratio + '\n'
         stats += 'Kills: ' + self.kills + '\n'
         stats += 'Kills/Match: ' + self.kills_match + '\n\n'
         return stats
