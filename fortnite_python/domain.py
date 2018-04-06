@@ -3,7 +3,7 @@ from enum import Enum
 
 class Platform(Enum):
     PC = 'pc'
-    XBOX = 'xb1'
+    XBOX = 'xbl'
     PSN = 'psn'
 
 

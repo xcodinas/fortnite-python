@@ -5,7 +5,7 @@ with open('README.md') as f:
 
 setup(
     name='fortnite-python',
-    version='0.2.2',
+    version='0.2.3',
     description='Python wrapper for http://fortnitetracker.com/ api.',
     long_description=long_description,
     long_description_content_type='text/markdown',
