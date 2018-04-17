@@ -61,4 +61,3 @@ def test_stats():
     assert stats.top10
     assert stats.top12
     assert stats.top25
-    assert stats.avg_time
