@@ -68,6 +68,7 @@ class Stats(Domain):
         self.top10 = self._data.get('top10').get('value')
         self.top12 = self._data.get('top12').get('value')
         self.top25 = self._data.get('top25').get('value')
+        self.avg_time = self._data.get('avgTimePlayed').get('value')
 
     def __str__(self):
         stats = 'Top 1: ' + self.wins + '\n'
