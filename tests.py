@@ -44,20 +44,3 @@ def test_stats():
     # Test wrong mode
     with pytest.raises(AttributeError):
         player.getStats(Mode.duo)
-
-    # Check that if empty returns squad
-    stats = player.getStats()
-    assert stats.wins
-    assert stats.total
-    assert stats.kd
-    assert stats.winratio
-    assert stats.kills
-    assert stats.score
-    assert stats.score_match
-    assert stats.kills_match
-    assert stats.top3
-    assert stats.top5
-    assert stats.top6
-    assert stats.top10
-    assert stats.top12
-    assert stats.top25
