@@ -53,7 +53,8 @@ class Stats(Domain):
 
     def from_json(self):
         super().from_json()
-        self.wins = self._data.get('top1').get('value')
+        if 'wins' in self._data:
+            self.wins = self._data.get('top1').get('value')
         self.total = self._data.get('matches').get('value')
         self.kd = self._data.get('kd').get('value')
         if 'winRatio' in self._data:
