@@ -49,6 +49,7 @@ class Player(Domain):
 
     def from_json(self):
         super().from_json()
+        self.id = self._data.get('accountId')
         self.platform = self._data.get('platformName')
         self.username = self._data.get('epicUserHandle')
         self.recentMatches = self._data.get('recentMatches')
@@ -89,4 +90,8 @@ class Challenge(Domain):
 
 
 class StoreItem(Domain):
+    """"""
+
+
+class Match(Domain):
     """"""

@@ -4,7 +4,7 @@ import furl
 import requests
 
 from .exceptions import UnauthorizedError, NotFoundError, UnknownPlayerError
-from .domain import Platform, Player, Challenge, StoreItem
+from .domain import Platform, Player, Challenge, StoreItem, Match
 
 
 class Fortnite:
@@ -13,7 +13,7 @@ class Fortnite:
         self.client = Client(api_key)
 
     def player(self, player=None, platform=Platform.PC):
-        endpoint = 'profile/' + platform.value + '/' + player
+        endpoint = 'profile/%s/%s' % (platform.value, player)
         data = self.client.request(endpoint)
         if 'accountId' in data:
             return Player(data)
@@ -35,6 +35,16 @@ class Fortnite:
         for idx, challenge in enumerate(data):
             store.append(StoreItem(challenge))
         return store
+
+    def matches(self, player_id, limit=25):
+        endpoint = 'profile/account/%s/matches' % player_id
+        data = self.client.request(endpoint)
+        matches = []
+        for n, match in enumerate(data):
+            if n >= limit:
+                break
+            matches.append(Match(match))
+        return matches
 
 
 class Client:

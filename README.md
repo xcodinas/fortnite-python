@@ -99,3 +99,21 @@ Getting active store items:
 <StoreItem 918>, <StoreItem 4835>, <StoreItem 6050>, <StoreItem 5981>]
 
 ```
+
+
+Getting matches data:
+
+When calling matches you have to pass the player id and the number of matches
+you want (from 1 to 50)
+
+```
+>>> from fortnite_python import Fortnite
+
+>>> fortnite = Fortnite('Given api key')
+>>> player = fortnite.player('playername')
+<Player 20a8fafaa-6chfj-6455-b715-2424fff pc>
+
+>>> fortnite.matches(player.id, 5)
+[<Match 806686859>, <Match 806611889>, <Match 806602331>, <Match 806532871>,
+    <Match 806522998>]
+```
