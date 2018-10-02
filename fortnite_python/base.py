@@ -24,7 +24,7 @@ class Fortnite:
         data = self.client.request(endpoint)
         challenges = []
         for idx, challenge in enumerate(data.get('items')):
-            # challenge['id'] = {'value': idx + 1}
+            challenge['id'] = {'value': idx + 1}
             challenges.append(Challenge(challenge))
         return challenges
 
