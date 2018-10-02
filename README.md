@@ -75,3 +75,27 @@ Retrieving player stats:
 
 ```
 You can check the available modes [here](https://github.com/xcodinas/fortnite-python/blob/master/fortnite_python/domain.py#L10)
+
+
+Getting active challenges:
+
+```
+>>> from fortnite_python import Fortnite
+
+>>> fortnite = Fortnite('Given api key')
+>>> fortnite.challenges()
+[<Challenge 1>, <Challenge 2>, <Challenge 3>, <Challenge 4>, <Challenge 5>,
+<Challenge 6>, <Challenge 7>]
+```
+
+Getting active store items:
+
+```
+>>> from fortnite_python import Fortnite
+
+>>> fortnite = Fortnite('Given api key')
+>>> fortnite.store()
+[<StoreItem 1974>, <StoreItem 6010>, <StoreItem 1246>, <StoreItem 6012>,
+<StoreItem 918>, <StoreItem 4835>, <StoreItem 6050>, <StoreItem 5981>]
+
+```

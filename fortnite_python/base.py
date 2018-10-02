@@ -4,7 +4,7 @@ import furl
 import requests
 
 from .exceptions import UnauthorizedError, NotFoundError, UnknownPlayerError
-from .domain import Platform, Player
+from .domain import Platform, Player, Challenge, StoreItem
 
 
 class Fortnite:
@@ -13,16 +13,33 @@ class Fortnite:
         self.client = Client(api_key)
 
     def player(self, player=None, platform=Platform.PC):
-        endpoint = platform.value + '/' + player
+        endpoint = 'profile/' + platform.value + '/' + player
         data = self.client.request(endpoint)
         if 'accountId' in data:
             return Player(data)
         raise UnknownPlayerError
 
+    def challenges(self):
+        endpoint = 'challenges'
+        data = self.client.request(endpoint)
+        challenges = []
+        for idx, challenge in enumerate(data.get('items')):
+            # challenge['id'] = {'value': idx + 1}
+            challenges.append(Challenge(challenge))
+        return challenges
+
+    def store(self):
+        endpoint = 'store'
+        data = self.client.request(endpoint)
+        store = []
+        for idx, challenge in enumerate(data):
+            store.append(StoreItem(challenge))
+        return store
+
 
 class Client:
 
-    BASE_URL = 'https://api.fortnitetracker.com/v1/profile/'
+    BASE_URL = 'https://api.fortnitetracker.com/v1/'
 
     def __init__(self, api_key):
         self.session = requests.Session()

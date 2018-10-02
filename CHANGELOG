@@ -1,0 +1,5 @@
+Version 0.3.0 - 2018-10-02
+* Add TODO file
+* Add support for store and challenges endpoint
+* Change all class methods to SnakeCase of the json response keys
+* Change getStats method to get_stats
