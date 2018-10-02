@@ -97,7 +97,6 @@ Visit all of the Corrupted Areas
 https://cdn.thetrackernetwork.com/cdn/trackernetwork/63D2upload.png
 >>> print(challenges[0].reward_name)
 5
-
 ```
 
 
@@ -109,5 +108,4 @@ Retrieving the current Fortnite store:
 
 >>> fortnite = Fortnite('Given api key')
 >>> store = fortnite.store()
-
 ```
