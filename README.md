@@ -75,3 +75,39 @@ Retrieving player stats:
 
 ```
 You can check the available modes [here](https://github.com/xcodinas/fortnite-python/blob/master/fortnite_python/domain.py#L10)
+
+
+Retrieving the current Challenges:
+
+
+```
+>>> from fortnite_python import Fortnite
+
+>>> fortnite = Fortnite('Given api key')
+>>> challenges = fortnite.challenges()
+>>> print (challenges)
+[<Challenge 1>, <Challenge 1>, <Challenge 1>, <Challenge 1>, <Challenge 1>, <Challenge 1>, <Challenge 1>]
+>>> print(challenges[0].name)
+Visit all of the Corrupted Areas
+>>> print(challenges[0].quest_completed)
+0
+>>> print(challenges[0].quest_total)
+1
+>>> print(challenges[0].reward_picture_url)
+https://cdn.thetrackernetwork.com/cdn/trackernetwork/63D2upload.png
+>>> print(challenges[0].reward_name)
+5
+
+```
+
+
+Retrieving the current Fortnite store:
+
+
+```
+>>> from fortnite_python import Fortnite
+
+>>> fortnite = Fortnite('Given api key')
+>>> store = fortnite.store()
+
+```
