@@ -8,11 +8,12 @@ from .domain import Platform, Player
 
 
 class Fortnite:
-
+    """The Fortnite class provides access to fortnitetracker’s API endpoints"""
     def __init__(self, api_key):
         self.client = Client(api_key)
 
     def player(self, player=None, platform=Platform.PC):
+        """Client object is assigned player value/checks to see if player already in system"""
         endpoint = platform.value + '/' + player
         data = self.client.request(endpoint)
         if 'accountId' in data:
@@ -21,6 +22,7 @@ class Fortnite:
 
 
 class Client:
+    """The Client class is a wrapper around the requests library"""
 
     BASE_URL = 'https://api.fortnitetracker.com/v1/profile/'
 
@@ -40,6 +42,7 @@ class Client:
     }
 
     def request(self, endpoint):
+        """Creates response with parameters of self and endpoint and handles exceptions"""
         response = self.session.get(self.BASE_URL + endpoint)
         if response.status_code != self.API_OK:
             exception = self.API_ERRORS_MAPPING.get(
