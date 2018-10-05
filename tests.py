@@ -30,7 +30,7 @@ def test_platform():
     player = fortnite.player('ninja', Platform.PC)
     assert player.platform == 'pc'
 
-    player = fortnite.player('RawXB', Platform.XBOX)
+    player = fortnite.player('Darktrust', Platform.XBOX)
     assert player.platform == 'xbox'
 
     player = fortnite.player('AlexRamiGaming', Platform.PSN)

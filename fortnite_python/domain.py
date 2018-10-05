@@ -1,3 +1,5 @@
+import re
+
 from enum import Enum
 
 
@@ -26,6 +28,18 @@ class Domain:
 
     def from_json(self):
         self.id = 1
+        for key in self._data:
+            if 'id' in key or 'Id' in key or 'ID' in key:
+                value = self._data.get(key)
+                self.id = value if type(value) != dict else value.get('value')
+                continue
+            value = self._data.get(key)
+            setattr(self, self.to_snake(key),
+                value if type(value) != dict else value.get('value'))
+
+    def to_snake(self, name):
+        s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name)
+        return re.sub('([a-z0-9])([A-Z])', r'\1_\2', s1).lower()
 
 
 class Player(Domain):
@@ -42,42 +56,42 @@ class Player(Domain):
         self._stats = self._data.get('stats')
         self._lifetime = self._data.get('lifeTimeStats')
 
-    def getStats(self, mode=Mode.SQUAD):
+    def get_stats(self, mode=Mode.SQUAD):
         return Stats(self._stats.get(mode.value))
 
 
 class Stats(Domain):
-    def __init__(self, stats):
-        self._data = stats
-        self.from_json()
+    def __str__(self):
+        general_stats = {
+            'wins': 'Top 1',
+            'top3': 'Top 3',
+            'top5': 'Top 5',
+            'top10': 'Top 10',
+            'winratio': 'Win Ratio',
+            'kills': 'Kills',
+            'kills_match': 'Kills/Match',
+        }
+        stats = ''
+        for stat in general_stats:
+            if hasattr(self, stat):
+                stats += ("%s: %s\n") % (general_stats[stat],
+                    getattr(self, stat))
+        return stats
 
+
+class Challenge(Domain):
     def from_json(self):
         super().from_json()
-        if 'wins' in self._data:
-            self.wins = self._data.get('top1').get('value')
-        self.total = self._data.get('matches').get('value')
-        self.kd = self._data.get('kd').get('value')
-        if 'winRatio' in self._data:
-            self.winratio = self._data.get('winRatio').get('value')
-        self.kills = self._data.get('kills').get('value')
-        self.score = self._data.get('score').get('value')
-        self.score_match = self._data.get('scorePerMatch').get('value')
-        self.kills_match = self._data.get('kpg').get('value')
-        self.top3 = self._data.get('top3').get('value')
-        self.top5 = self._data.get('top5').get('value')
-        self.top6 = self._data.get('top6').get('value')
-        self.top10 = self._data.get('top10').get('value')
-        self.top12 = self._data.get('top12').get('value')
-        self.top25 = self._data.get('top25').get('value')
-        self.avg_time = self._data.get('avgTimePlayed').get('value')
+        self.name = self.metadata[1].get('value')
+        self.quest_completed = self.metadata[2].get('value')
+        self.quest_total = self.metadata[3].get('value')
+        self.reward_picture_url = self.metadata[4].get('value')
+        self.reward_name = self.metadata[5].get('value')
 
-    def __str__(self):
-        stats = 'Top 1: ' + self.wins + '\n'
-        stats += 'Top 3: ' + self.top3 + '\n'
-        stats += 'Top 5: ' + self.top5 + '\n'
-        stats += 'Top 10: ' + self.top10 + '\n'
-        if hasattr(self, 'winratio'):
-            stats += 'Win Ratio: ' + self.winratio + '\n'
-        stats += 'Kills: ' + self.kills + '\n'
-        stats += 'Kills/Match: ' + self.kills_match + '\n\n'
-        return stats
+
+class StoreItem(Domain):
+    """"""
+
+
+class Match(Domain):
+    """"""
