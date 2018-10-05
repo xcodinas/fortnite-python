@@ -13,7 +13,7 @@ class Fortnite:
         self.client = Client(api_key)
 
     def player(self, player=None, platform=Platform.PC):
-        """Client object is assigned player value/checks to see if player already in system"""
+        """This function gets the player data and returns a Player object (if exists)"""
         endpoint = platform.value + '/' + player
         data = self.client.request(endpoint)
         if 'accountId' in data:
@@ -42,7 +42,7 @@ class Client:
     }
 
     def request(self, endpoint):
-        """Creates response with parameters of self and endpoint and handles exceptions"""
+        """This function does the request to the api with the endpoint provided and returns de json (if the response is ok)"""
         response = self.session.get(self.BASE_URL + endpoint)
         if response.status_code != self.API_OK:
             exception = self.API_ERRORS_MAPPING.get(
