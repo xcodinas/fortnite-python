@@ -90,8 +90,8 @@ class Challenge(Domain):
 
 
 class StoreItem(Domain):
-    """"""
+    """Object containing store items attributes"""
 
 
 class Match(Domain):
-    """"""
+    """Object containing match attributes"""
