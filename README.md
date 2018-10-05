@@ -95,7 +95,6 @@ you want (from 1 to 50)
 >>> from fortnite_python import Fortnite
 
 >>> fortnite = Fortnite('Given api key')
-<<<<<<< HEAD
 >>> challenges = fortnite.challenges()
 >>> print (challenges)
 [<Challenge 1>, <Challenge 1>, <Challenge 1>, <Challenge 1>, <Challenge 1>, <Challenge 1>, <Challenge 1>]
