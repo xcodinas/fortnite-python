@@ -79,6 +79,7 @@ You can check the available modes [here](https://github.com/xcodinas/fortnite-py
 When calling matches you have to pass the player id and the number of matches
 you want (from 1 to 50)
 
+```
 >>> player = fortnite.player('playername')
 <Player 20a8fafaa-6chfj-6455-b715-2424fff pc>
 
