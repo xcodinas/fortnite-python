@@ -4,21 +4,20 @@ from enum import Enum
 
 
 class Platform(Enum):
-    """Defines the platform the account uses"""
+    """This is to refer to the platform always the same way and to prevent the changes if the api updates."""
     PC = 'pc'
     XBOX = 'xbl'
     PSN = 'psn'
 
 
 class Mode(Enum):
-    """Defines the gamemode in which a user played"""
+    """Same as platform but for mode"""
     SOLO = 'p2'
     DUO = 'p10'
     SQUAD = 'p9'
 
 
 class Domain:
-    """T"""
     def __init__(self, data, meta=None):
         """Creates data object"""
         self._data = data
