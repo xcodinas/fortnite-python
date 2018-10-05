@@ -13,6 +13,7 @@ class Fortnite:
         self.client = Client(api_key)
 
     def player(self, player=None, platform=Platform.PC):
+        """Player endpoint"""
         endpoint = 'profile/%s/%s' % (platform.value, player)
         data = self.client.request(endpoint)
         if 'accountId' in data:
@@ -20,6 +21,7 @@ class Fortnite:
         raise UnknownPlayerError
 
     def challenges(self):
+        """challenges endpoint"""
         endpoint = 'challenges'
         data = self.client.request(endpoint)
         challenges = []
@@ -29,6 +31,7 @@ class Fortnite:
         return challenges
 
     def store(self):
+        """store endpoint"""
         endpoint = 'store'
         data = self.client.request(endpoint)
         store = []
@@ -37,6 +40,7 @@ class Fortnite:
         return store
 
     def matches(self, player_id, limit=25):
+        """match endpoint"""
         endpoint = 'profile/account/%s/matches' % player_id
         data = self.client.request(endpoint)
         matches = []

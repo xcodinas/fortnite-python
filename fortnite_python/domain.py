@@ -70,6 +70,7 @@ class Player(Domain):
 
 
 class Stats(Domain):
+    """Object containing stats items attributes"""
     def __str__(self):
         general_stats = {
             'wins': 'Top 1',
@@ -89,6 +90,7 @@ class Stats(Domain):
 
 
 class Challenge(Domain):
+    """Object containing challenge items attributes"""
     def from_json(self):
         """Takes in arguments and sets attributes to default by placement"""
         super().from_json()
