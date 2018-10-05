@@ -27,7 +27,7 @@ fortnite = Fortnite('Given api key')
 ```
 
 
-Retrieving a player:
+#### Retrieving a player:
 
 ```
 >>> from fortnite_python import Fortnite
@@ -37,7 +37,6 @@ Retrieving a player:
 player
 
 <Player 20a8fafaa-6chfj-6455-b715-2424fff pc>
-
 ```
 
 The default platform is PC, if you want to use a diferent platform you should
@@ -51,14 +50,12 @@ do it this way:
 >>> player = fortnite.player('playername', Platform.XBOX)
 >>> player
 <Player 20a8fafaa-6chfj-6455-b715-2424fff xb1>
-
-
 ```
 
 You can check the available platforms [here](https://github.com/xcodinas/fortnite-python/blob/master/fortnite_python/domain.py#L4)
 
 
-Retrieving player stats:
+#### Retrieving player stats:
 
 
 ```
@@ -72,6 +69,39 @@ Retrieving player stats:
 '10'
 >>> stats.top3
 '20'
-
 ```
 You can check the available modes [here](https://github.com/xcodinas/fortnite-python/blob/master/fortnite_python/domain.py#L10)
+
+
+#### Retrieving the current Challenges:
+
+
+```
+>>> from fortnite_python import Fortnite
+
+>>> fortnite = Fortnite('Given api key')
+>>> challenges = fortnite.challenges()
+>>> print (challenges)
+[<Challenge 1>, <Challenge 1>, <Challenge 1>, <Challenge 1>, <Challenge 1>, <Challenge 1>, <Challenge 1>]
+>>> print(challenges[0].name)
+Visit all of the Corrupted Areas
+>>> print(challenges[0].quest_completed)
+0
+>>> print(challenges[0].quest_total)
+1
+>>> print(challenges[0].reward_picture_url)
+https://cdn.thetrackernetwork.com/cdn/trackernetwork/63D2upload.png
+>>> print(challenges[0].reward_name)
+5
+```
+
+
+#### Retrieving the current Fortnite store:
+
+
+```
+>>> from fortnite_python import Fortnite
+
+>>> fortnite = Fortnite('Given api key')
+>>> store = fortnite.store()
+```
