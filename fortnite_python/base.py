@@ -72,7 +72,8 @@ class Client:
     }
 
     def request(self, endpoint):
-        """This function does the request to the api with the endpoint provided and returns de json (if the response is ok)"""
+        """This function does the request to the api with the endpoint 
+        provided and returns de json (if the response is ok)"""
         response = self.session.get(self.BASE_URL + endpoint)
         if response.status_code != self.API_OK:
             exception = self.API_ERRORS_MAPPING.get(
