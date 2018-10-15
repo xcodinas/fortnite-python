@@ -4,7 +4,8 @@ from enum import Enum
 
 
 class Platform(Enum):
-    """This is to refer to the platform always the same way and to prevent the changes if the api updates."""
+    """This is to refer to the platform always the same way and to prevent 
+    the changes if the api updates."""
     PC = 'pc'
     XBOX = 'xbl'
     PSN = 'psn'
