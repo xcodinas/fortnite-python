@@ -8,11 +8,12 @@ from .domain import Platform, Player, Challenge, StoreItem, Match
 
 
 class Fortnite:
-
+    """The Fortnite class provides access to fortnitetracker’s API endpoints"""
     def __init__(self, api_key):
         self.client = Client(api_key)
 
     def player(self, player=None, platform=Platform.PC):
+        """Player endpoint"""
         endpoint = 'profile/%s/%s' % (platform.value, player)
         data = self.client.request(endpoint)
         if 'accountId' in data:
@@ -20,6 +21,7 @@ class Fortnite:
         raise UnknownPlayerError
 
     def challenges(self):
+        """challenges endpoint"""
         endpoint = 'challenges'
         data = self.client.request(endpoint)
         challenges = []
@@ -29,6 +31,7 @@ class Fortnite:
         return challenges
 
     def store(self):
+        """store endpoint"""
         endpoint = 'store'
         data = self.client.request(endpoint)
         store = []
@@ -37,6 +40,7 @@ class Fortnite:
         return store
 
     def matches(self, player_id, limit=25):
+        """match endpoint"""
         endpoint = 'profile/account/%s/matches' % player_id
         data = self.client.request(endpoint)
         matches = []
@@ -48,6 +52,7 @@ class Fortnite:
 
 
 class Client:
+    """The Client class is a wrapper around the requests library"""
 
     BASE_URL = 'https://api.fortnitetracker.com/v1/'
 
@@ -67,6 +72,8 @@ class Client:
     }
 
     def request(self, endpoint):
+        """This function does the request to the api with the endpoint 
+        provided and returns de json (if the response is ok)"""
         response = self.session.get(self.BASE_URL + endpoint)
         if response.status_code != self.API_OK:
             exception = self.API_ERRORS_MAPPING.get(
