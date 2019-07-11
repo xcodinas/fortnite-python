@@ -64,7 +64,7 @@ You can check the available platforms [here](https://github.com/xcodinas/fortnit
 
 >>> fortnite = Fortnite('Given api key')
 >>> player = fortnite.player('playername')
->>> stats = player.getStats(Mode.DUO)
+>>> stats = player.get_stats(Mode.DUO)
 >>> stats.wins
 '10'
 >>> stats.top3
