@@ -13,7 +13,7 @@ def test_unauthorized():
 
 def test_notfound():
     fortnite = Fortnite(os.environ.get("fortnite_api_key"))
-    pytest.raises(UnknownPlayerError, fortnite.player, 'test')
+    pytest.raises(UnknownPlayerError, fortnite.player, 'test478941897498893')
 
 
 def test_platform():
