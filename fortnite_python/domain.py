@@ -9,6 +9,9 @@ class Platform(Enum):
     PC = 'pc'
     XBOX = 'xbox'
     PSN = 'psn'
+    TOUCH = 'touch'
+    GAMEPAD = 'gamepad'
+    KBM = 'kbm'
 
 
 class Mode(Enum):
