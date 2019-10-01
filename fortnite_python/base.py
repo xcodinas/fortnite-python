@@ -9,6 +9,7 @@ from .domain import Platform, Player, Challenge, StoreItem, Match
 
 class Fortnite:
     """The Fortnite class provides access to fortnitetracker’s API endpoints"""
+
     def __init__(self, api_key):
         self.client = Client(api_key)
 
@@ -72,7 +73,7 @@ class Client:
     }
 
     def request(self, endpoint):
-        """This function does the request to the api with the endpoint 
+        """This function does the request to the api with the endpoint
         provided and returns de json (if the response is ok)"""
         response = self.session.get(self.BASE_URL + endpoint)
         if response.status_code != self.API_OK:

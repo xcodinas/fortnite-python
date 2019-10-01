@@ -4,7 +4,7 @@ from enum import Enum
 
 
 class Platform(Enum):
-    """This is to refer to the platform always the same way and to prevent 
+    """This is to refer to the platform always the same way and to prevent
     the changes if the api updates."""
     PC = 'pc'
     XBOX = 'xbl'
@@ -51,6 +51,7 @@ class Domain:
 
 class Player(Domain):
     """The Player class builds a player object to be queried"""
+
     def __repr__(self):
         """Returns string containing printable representation of object"""
         return '<{0} {1} {2}>'.format(
@@ -72,9 +73,10 @@ class Player(Domain):
 
 class Stats(Domain):
     """Object containing stats items attributes"""
+
     def __str__(self):
         general_stats = {
-            'wins': 'Top 1',
+            'top1': 'Top 1',
             'top3': 'Top 3',
             'top5': 'Top 5',
             'top10': 'Top 10',
@@ -92,6 +94,7 @@ class Stats(Domain):
 
 class Challenge(Domain):
     """Object containing challenge items attributes"""
+
     def from_json(self):
         """Takes in arguments and sets attributes to default by placement"""
         super().from_json()
