@@ -49,7 +49,7 @@ do it this way:
 >>> fortnite = Fortnite('Given api key')
 >>> player = fortnite.player('playername', Platform.XBOX)
 >>> player
-<Player 20a8fafaa-6chfj-6455-b715-2424fff xb1>
+<Player 20a8fafaa-6chfj-6455-b715-2424fff xbox>
 ```
 
 You can check the available platforms [here](https://github.com/xcodinas/fortnite-python/blob/master/fortnite_python/domain.py#L4)
