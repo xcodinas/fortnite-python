@@ -2,6 +2,12 @@
 [![PyPI version](https://badge.fury.io/py/fortnite-python.svg)](https://badge.fury.io/py/fortnite-python)
 [![Requirements Status](https://requires.io/github/xcodinas/fortnite-python/requirements.svg?branch=master)](https://requires.io/github/xcodinas/fortnite-python/requirements/?branch=master)
 
+
+> [!WARNING]
+> Public api use on fornitetracker was disabled so this won't work anymore.
+> 
+> https://feedback.tracker.gg/t/how-to-use-fortnite-api/33408/2
+
 # fortnite-python
 Python wrapper for http://fortnitetracker.com/ api.
 
